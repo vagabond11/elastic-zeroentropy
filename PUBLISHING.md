@@ -1,56 +1,122 @@
 # Publishing Guide for elastic-zeroentropy
 
-This guide covers how to publish the `elastic-zeroentropy` library to PyPI.
+This guide covers how to publish the `elastic-zeroentropy` library to PyPI and manage releases.
 
-## Prerequisites
+## 🚀 Quick Release Process
 
-1. **PyPI Account**: Create an account at https://pypi.org/
-2. **TestPyPI Account**: Create an account at https://test.pypi.org/ (for testing)
-3. **API Tokens**: Generate API tokens for both PyPI and TestPyPI
-4. **Build Tools**: Install required build tools
+### Automated Release (Recommended)
+
+1. **Go to GitHub Actions**: https://github.com/vagabond11/elastic-zeroentropy/actions
+2. **Select "Release" workflow**
+3. **Click "Run workflow"**
+4. **Fill in the form**:
+   - **Version**: e.g., `0.1.1`
+   - **Release Type**: `patch`, `minor`, or `major`
+   - **Publish to PyPI**: ✅ (checked by default)
+5. **Click "Run workflow"**
+
+This will automatically:
+- ✅ Build the package
+- ✅ Create a GitHub release
+- ✅ Upload release assets
+- ✅ Publish to PyPI (if enabled)
+
+### Manual Release
 
 ```bash
-pip install build twine
+# 1. Update version in pyproject.toml
+# 2. Update version in src/elastic_zeroentropy/__init__.py
+# 3. Update CHANGELOG.md
+# 4. Commit changes
+git add .
+git commit -m "Bump version to 0.1.1"
+git push origin main
+
+# 5. Create and push tag
+git tag v0.1.1
+git push origin v0.1.1
+
+# 6. Create GitHub release manually
+# Go to: https://github.com/vagabond11/elastic-zeroentropy/releases/new
 ```
 
-## Pre-Publishing Checklist
+## 📋 Pre-Publishing Checklist
 
 ### 1. Update Version
 Update the version in `pyproject.toml`:
 ```toml
-version = "0.1.0"  # Change to new version
+version = "0.1.1"  # Change to new version
+```
+
+And in `src/elastic_zeroentropy/__init__.py`:
+```python
+__version__ = "0.1.1"
 ```
 
 ### 2. Update Changelog
-Add release notes to `CHANGELOG.md` (create if it doesn't exist).
+Add release notes to `CHANGELOG.md`:
+```markdown
+## [0.1.1] - 2024-01-XX
 
-### 3. Run Tests
-```bash
-# Install development dependencies
-pip install -e ".[dev]"
+### Added
+- New feature X
+- New feature Y
 
-# Run all tests
-pytest
+### Changed
+- Improved performance
+- Updated dependencies
 
-# Run with coverage
-pytest --cov=elastic_zeroentropy --cov-report=html
-
-# Type checking
-mypy src/
-
-# Code formatting
-black src/ tests/
-isort src/ tests/
+### Fixed
+- Bug fix A
+- Bug fix B
 ```
 
-### 4. Update Documentation
-- Ensure README.md is up to date
-- Check all examples work
-- Verify installation instructions
+### 3. Run Quality Checks
+```bash
+# Run all tests
+make test
 
-## Publishing Steps
+# Run linting
+make lint
 
-### 1. Build Distribution
+# Run security checks
+make security
+
+# Check version consistency
+make check-version
+```
+
+### 4. Test Build Locally
+```bash
+# Clean previous builds
+make clean
+
+# Build package
+make build
+
+# Check package
+twine check dist/*
+
+# Test installation
+pip install dist/elastic_zeroentropy-0.1.1-py3-none-any.whl
+```
+
+## 🔧 GitHub Secrets Required
+
+### For PyPI Publishing
+- **`PYPI_API_TOKEN`**: Your PyPI API token
+  - Get from: https://pypi.org/manage/account/token/
+  - Format: `pypi-AgEIcHlwaS5vcmcC...`
+
+### For Testing (Optional)
+- **`ZEROENTROPY_API_KEY`**: For running tests with real API
+- **`CODECOV_TOKEN`**: For coverage reporting
+
+## 🛠️ Manual Publishing Steps
+
+If you need to publish manually:
+
+### 1. Build Package
 ```bash
 # Clean previous builds
 rm -rf build/ dist/ *.egg-info/
@@ -59,7 +125,13 @@ rm -rf build/ dist/ *.egg-info/
 python -m build
 ```
 
-### 2. Test on TestPyPI (Recommended)
+### 2. Check Package
+```bash
+# Validate distribution
+twine check dist/*
+```
+
+### 3. Test on TestPyPI (Recommended)
 ```bash
 # Upload to TestPyPI first
 twine upload --repository testpypi dist/*
@@ -68,15 +140,76 @@ twine upload --repository testpypi dist/*
 pip install --index-url https://test.pypi.org/simple/ elastic-zeroentropy
 ```
 
-### 3. Publish to PyPI
+### 4. Publish to PyPI
 ```bash
 # Upload to PyPI
 twine upload dist/*
 ```
 
-## Post-Publishing
+## 🔍 Troubleshooting
 
-### 1. Verify Installation
+### Common Issues
+
+#### 1. **Authentication Error**
+```
+HTTPError: 403 Forbidden from https://pypi.org/legacy/
+```
+**Solution**: Check your `PYPI_API_TOKEN` secret in GitHub repository settings.
+
+#### 2. **Version Already Exists**
+```
+HTTPError: 400 Bad Request from https://pypi.org/legacy/
+File already exists.
+```
+**Solution**: Increment version number in `pyproject.toml` and `__init__.py`.
+
+#### 3. **Build Errors**
+```
+ModuleNotFoundError: No module named 'build'
+```
+**Solution**: Install build tools:
+```bash
+pip install build twine
+```
+
+#### 4. **Test Failures**
+```
+pytest: command not found
+```
+**Solution**: Install development dependencies:
+```bash
+pip install -e ".[dev]"
+```
+
+#### 5. **Linting Errors**
+```
+flake8: command not found
+```
+**Solution**: Install linting tools:
+```bash
+pip install flake8 black isort mypy bandit
+```
+
+### Workflow Issues
+
+#### 1. **CI/CD Pipeline Failing**
+- Check GitHub Actions logs: https://github.com/vagabond11/elastic-zeroentropy/actions
+- Ensure all secrets are configured
+- Check Python version compatibility
+
+#### 2. **Release Workflow Not Triggering**
+- Ensure you're on the `main` branch
+- Check workflow permissions in repository settings
+- Verify GitHub token permissions
+
+#### 3. **Publish Job Skipped**
+- Ensure `publish_to_pypi` is set to `true`
+- Check that `PYPI_API_TOKEN` secret exists
+- Verify release was created successfully
+
+## 📊 Post-Publishing Verification
+
+### 1. Verify PyPI Installation
 ```bash
 # Test installation from PyPI
 pip install elastic-zeroentropy
@@ -85,96 +218,46 @@ pip install elastic-zeroentropy
 python -c "import elastic_zeroentropy; print('Installation successful!')"
 ```
 
-### 2. Update GitHub Release
-- Create a new release on GitHub
-- Tag with version (e.g., `v0.1.0`)
-- Upload distribution files
-- Add release notes
+### 2. Verify GitHub Release
+- Check: https://github.com/vagabond11/elastic-zeroentropy/releases
+- Ensure assets are uploaded
+- Verify release notes are complete
 
 ### 3. Update Documentation
 - Update any version-specific documentation
 - Update badges if needed
+- Update examples if API changed
 
-## Troubleshooting
+## 🎯 Best Practices
 
-### Common Issues
+### Version Management
+- Use semantic versioning (MAJOR.MINOR.PATCH)
+- Update both `pyproject.toml` and `__init__.py`
+- Keep `CHANGELOG.md` up to date
 
-1. **Authentication Error**: Ensure your API tokens are correct
-2. **Version Already Exists**: Increment version number
-3. **Build Errors**: Check for syntax errors and missing dependencies
-4. **Upload Errors**: Verify network connection and PyPI status
+### Release Process
+- Always test on TestPyPI first
+- Use automated workflows when possible
+- Include comprehensive release notes
+- Tag releases with `v` prefix (e.g., `v0.1.1`)
 
-### Useful Commands
+### Quality Assurance
+- Run full test suite before release
+- Ensure all linting passes
+- Check security vulnerabilities
+- Verify package builds correctly
 
-```bash
-# Check distribution contents
-tar -tzf dist/elastic-zeroentropy-0.1.0.tar.gz
+## 🔗 Useful Links
 
-# Validate distribution
-twine check dist/*
+- **PyPI**: https://pypi.org/project/elastic-zeroentropy/
+- **TestPyPI**: https://test.pypi.org/project/elastic-zeroentropy/
+- **GitHub Releases**: https://github.com/vagabond11/elastic-zeroentropy/releases
+- **GitHub Actions**: https://github.com/vagabond11/elastic-zeroentropy/actions
+- **PyPI Token Management**: https://pypi.org/manage/account/token/
 
-# Test installation in clean environment
-python -m venv test_env
-source test_env/bin/activate  # On Windows: test_env\Scripts\activate
-pip install elastic-zeroentropy
-```
-
-## Version Management
-
-### Semantic Versioning
-- **MAJOR**: Breaking changes
-- **MINOR**: New features, backward compatible
-- **PATCH**: Bug fixes, backward compatible
-
-### Version Update Checklist
-- [ ] Update version in `pyproject.toml`
-- [ ] Update version in `__init__.py` if needed
-- [ ] Update changelog
-- [ ] Update any version-specific documentation
-- [ ] Test with new version
-
-## Security Considerations
-
-1. **API Keys**: Never commit API keys to version control
-2. **Dependencies**: Regularly update dependencies for security patches
-3. **Vulnerabilities**: Run security scans on dependencies
-
-## Automation (Optional)
-
-Consider setting up GitHub Actions for automated publishing:
-
-```yaml
-# .github/workflows/publish.yml
-name: Publish to PyPI
-
-on:
-  release:
-    types: [published]
-
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
-    - name: Install dependencies
-      run: |
-        pip install build twine
-    - name: Build and publish
-      env:
-        TWINE_USERNAME: __token__
-        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-      run: |
-        python -m build
-        twine upload dist/*
-```
-
-## Support
+## 📞 Support
 
 For issues with publishing:
 - Check PyPI status: https://status.python.org/
 - Review PyPI documentation: https://packaging.python.org/
-- Check GitHub issues for known problems 
+- Check GitHub Actions documentation: https://docs.github.com/en/actions 

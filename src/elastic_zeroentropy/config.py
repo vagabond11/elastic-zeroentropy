@@ -168,11 +168,12 @@ class ElasticZeroEntropyConfig(BaseSettings):
         ge=1,
     )
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-        case_sensitive = False
-        validate_assignment = True
+    model_config = {
+        "env_file": ".env",
+        "env_file_encoding": "utf-8",
+        "case_sensitive": False,
+        "validate_assignment": True,
+    }
 
     @field_validator("zeroentropy_api_key")
     @classmethod

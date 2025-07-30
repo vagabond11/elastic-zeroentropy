@@ -48,10 +48,10 @@ jobs:
       run: |
         pytest --cov=elastic_zeroentropy --cov-report=xml --cov-report=html --cov-report=term-missing
       env:
-        ZEROENTROPY_API_KEY: ${{ secrets.ZEROENTROPY_API_KEY || 'test-key' }}
+        ZEROENTROPY_API_KEY: ${{ secrets.ZEROENTROPY_API_KEY }}
     
     - name: Upload coverage to Codecov
-      if: matrix.coverage
+      if: matrix.coverage && secrets.CODECOV_TOKEN
       uses: codecov/codecov-action@v3
       with:
         file: ./coverage.xml
@@ -85,7 +85,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -e ".[dev]"
-        pip install flake8 bandit
     
     - name: Run black
       run: black --check src/ tests/
@@ -174,8 +173,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install build twine
     
-    - name: Build package
-      run: python -m build
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: dist
+        path: dist/
+    
+    - name: Check package
+      run: twine check dist/*
     
     - name: Publish to PyPI
       env:
