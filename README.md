@@ -89,6 +89,134 @@ asyncio.run(main())
 
 ---
 
+## 🖥️ Demo UI Guide
+
+The **Elastic-ZeroEntropy Demo UI** is a powerful A/B testing interface that lets you compare original Elasticsearch results with ZeroEntropy reranked results in real-time.
+
+### 🚀 Getting Started
+
+1. **Launch the Demo:**
+   ```bash
+   ./run_demo.sh
+   ```
+   This opens the UI at http://localhost:8501
+
+2. **Choose Your Mode:**
+   - **Demo Mode** (default): Works without API keys using sample data
+   - **Live Mode**: Connect to your Elasticsearch + ZeroEntropy API
+
+### 🎛️ UI Features
+
+#### **Main Interface**
+- **🔍 Search Bar**: Enter your query to test
+- **🚀 Run A/B Test**: Execute the comparison
+- **📊 Results Comparison**: Side-by-side view of original vs reranked
+
+#### **Sidebar Configuration**
+
+**🔑 API Configuration:**
+- **ZeroEntropy API Key**: Your API key from https://zeroentropy.dev
+- **Elasticsearch URL**: Your ES instance (default: http://localhost:9200)
+- **Index Name**: Target Elasticsearch index
+
+**🔍 Search Settings:**
+- **Initial Results from ES**: How many docs to retrieve (10-200)
+- **Documents to Rerank**: How many to send for reranking (5-50)
+- **Final Results**: How many to display (5-20)
+
+**🧠 Reranking Settings:**
+- **ZeroEntropy Model**: Choose `zerank-1` or `zerank-1-small`
+- **Combine Scores**: Mix ES + rerank scores
+- **Score Weights**: Adjust ES vs rerank importance (0.0-1.0)
+
+**📊 Demo Data:**
+- **Use Demo Data**: Enable for testing without real connections
+
+### 📈 Understanding Results
+
+#### **Performance Metrics**
+- **Query Time**: Total search + reranking duration
+- **ES Time**: Elasticsearch query time
+- **Reranking Time**: ZeroEntropy API processing time
+- **Model Used**: Which ZeroEntropy model was applied
+
+#### **Results Comparison**
+- **Original Ranking**: Elasticsearch BM25 results
+- **Reranked Results**: ZeroEntropy LLM-enhanced results
+- **Score Breakdown**: ES score vs rerank score vs combined score
+- **Relevance Improvement**: Visual indicators of better matches
+
+#### **Visual Features**
+- **📊 Performance Charts**: Real-time metrics visualization
+- **🎯 Relevance Indicators**: Color-coded relevance scores
+- **📋 Detailed Metadata**: Document info, timestamps, sources
+- **🔄 A/B Comparison**: Side-by-side result analysis
+
+### 🎯 Use Cases
+
+#### **Testing Search Quality**
+1. Enter a complex query like "machine learning healthcare applications"
+2. Compare original vs reranked results
+3. Notice how LLM reranking improves contextual relevance
+
+#### **Parameter Tuning**
+1. Adjust `top_k_initial` to control ES result pool
+2. Modify `top_k_rerank` to balance cost vs quality
+3. Tune score weights for your use case
+4. Test different ZeroEntropy models
+
+#### **Performance Optimization**
+1. Monitor query times for different configurations
+2. Balance speed vs accuracy with model selection
+3. Optimize for your specific workload
+
+### 🔧 Advanced Features
+
+#### **Real-time Configuration**
+- **Dynamic Parameter Updates**: Change settings without restart
+- **Live API Testing**: Test your ZeroEntropy API key
+- **Elasticsearch Connection**: Verify ES connectivity
+
+#### **Demo Mode Benefits**
+- **No API Keys Required**: Test the interface immediately
+- **Sample Data**: Realistic documents for testing
+- **Simulated Reranking**: Understand the process flow
+
+#### **Production Mode**
+- **Live Elasticsearch**: Connect to your actual ES instance
+- **Real ZeroEntropy API**: Use actual LLM reranking
+- **Performance Monitoring**: Track real-world metrics
+
+### 💡 Pro Tips
+
+1. **Start with Demo Mode**: Understand the interface before connecting APIs
+2. **Test Complex Queries**: Try ambiguous or multi-concept searches
+3. **Compare Different Models**: Test `zerank-1` vs `zerank-1-small`
+4. **Monitor Performance**: Watch query times and adjust parameters
+5. **Save Configurations**: Note your best settings for production
+
+### 🚨 Troubleshooting
+
+**Demo won't start:**
+```bash
+# Check if port 8501 is free
+lsof -i :8501
+# Kill existing process if needed
+pkill -f streamlit
+```
+
+**API connection issues:**
+- Verify your ZeroEntropy API key
+- Check Elasticsearch URL and connectivity
+- Ensure index exists and is accessible
+
+**Performance problems:**
+- Reduce `top_k_initial` for faster queries
+- Use `zerank-1-small` for lower latency
+- Adjust score weights for your use case
+
+---
+
 ## 📦 Installation
 
 ```bash
