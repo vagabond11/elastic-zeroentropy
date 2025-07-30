@@ -25,7 +25,7 @@ from .models import (
 from .reranker import ElasticZeroEntropyReranker
 from .zeroentropy_client import ZeroEntropyClient
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Houssam Aït"
 __email__ = "houssam@example.com"
 

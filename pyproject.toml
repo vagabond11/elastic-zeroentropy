@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "elastic-zeroentropy"
-version = "0.1.0"
+version = "0.1.1"
 description = "Turn Elasticsearch into a smart search engine in 5 minutes with ZeroEntropy's LLM-powered reranking."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -117,7 +117,7 @@ line_length = 88
 known_first_party = ["elastic_zeroentropy"]
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "0.1.1"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

@@ -77,10 +77,23 @@ check-version: ## Check if version is consistent
 	@echo "Checking version consistency..."
 	@python -c "import tomllib; import elastic_zeroentropy; pyproject_version = tomllib.load(open('pyproject.toml', 'rb'))['project']['version']; package_version = elastic_zeroentropy.__version__; assert pyproject_version == package_version, f'Version mismatch: pyproject.toml has {pyproject_version}, package has {package_version}'; print(f'✅ Version consistent: {package_version}')"
 
-release: ## Prepare for release (update version, changelog, etc.)
-	@echo "Please update the version in pyproject.toml and src/elastic_zeroentropy/__init__.py"
-	@echo "Then update CHANGELOG.md with release notes"
-	@echo "Finally run: make build && make publish"
+bump-version: ## Bump version (usage: make bump-version VERSION=0.1.1)
+	@if [ -z "$(VERSION)" ]; then echo "Error: VERSION is required. Usage: make bump-version VERSION=0.1.1"; exit 1; fi
+	@python scripts/bump_version.py $(VERSION)
+
+release: ## Prepare for release (usage: make release VERSION=0.1.1)
+	@if [ -z "$(VERSION)" ]; then echo "Error: VERSION is required. Usage: make release VERSION=0.1.1"; exit 1; fi
+	@echo "🔄 Preparing release for version $(VERSION)..."
+	$(MAKE) bump-version VERSION=$(VERSION)
+	$(MAKE) check-version
+	$(MAKE) build
+	@echo "✅ Release prepared for version $(VERSION)"
+	@echo "Next steps:"
+	@echo "1. git add pyproject.toml src/elastic_zeroentropy/__init__.py"
+	@echo "2. git commit -m 'Bump version to $(VERSION)'"
+	@echo "3. git tag v$(VERSION)"
+	@echo "4. git push origin main"
+	@echo "5. git push origin v$(VERSION)"
 
 dev-setup: ## Set up development environment
 	$(MAKE) install-dev
