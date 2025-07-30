@@ -75,7 +75,7 @@ version: ## Show current version
 
 check-version: ## Check if version is consistent
 	@echo "Checking version consistency..."
-	@python -c "import toml; import elastic_zeroentropy; pyproject_version = toml.load('pyproject.toml')['project']['version']; package_version = elastic_zeroentropy.__version__; assert pyproject_version == package_version, f'Version mismatch: pyproject.toml has {pyproject_version}, package has {package_version}'; print(f'✅ Version consistent: {package_version}')"
+	@python -c "import tomllib; import elastic_zeroentropy; pyproject_version = tomllib.load(open('pyproject.toml', 'rb'))['project']['version']; package_version = elastic_zeroentropy.__version__; assert pyproject_version == package_version, f'Version mismatch: pyproject.toml has {pyproject_version}, package has {package_version}'; print(f'✅ Version consistent: {package_version}')"
 
 release: ## Prepare for release (update version, changelog, etc.)
 	@echo "Please update the version in pyproject.toml and src/elastic_zeroentropy/__init__.py"
