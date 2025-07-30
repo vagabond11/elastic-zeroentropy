@@ -1,7 +1,7 @@
 """
 elastic-zeroentropy: Turn Elasticsearch into a smart search engine with ZeroEntropy's reranking.
 
-A lightweight Python library that integrates ZeroEntropy's state-of-the-art rerankers 
+A lightweight Python library that integrates ZeroEntropy's state-of-the-art rerankers
 with Elasticsearch to provide intelligent search result reranking.
 """
 
@@ -32,24 +32,21 @@ __email__ = "houssam@example.com"
 __all__ = [
     # Main classes
     "ElasticZeroEntropyReranker",
-    "ZeroEntropyClient", 
+    "ZeroEntropyClient",
     "ElasticsearchClient",
-    
     # Configuration
     "ElasticZeroEntropyConfig",
-    
     # Models
     "Document",
-    "SearchResult", 
+    "SearchResult",
     "RerankRequest",
     "RerankResponse",
     "ElasticsearchQuery",
     "ElasticsearchResponse",
-    
     # Exceptions
     "ElasticZeroEntropyError",
     "ElasticsearchError",
-    "ZeroEntropyAPIError", 
+    "ZeroEntropyAPIError",
     "ConfigurationError",
     "RerankingError",
-] 
+]

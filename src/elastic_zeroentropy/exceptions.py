@@ -10,7 +10,7 @@ from typing import Any, Dict, Optional
 
 class ElasticZeroEntropyError(Exception):
     """Base exception for all elastic-zeroentropy errors."""
-    
+
     def __init__(self, message: str, details: Optional[Dict[str, Any]] = None) -> None:
         super().__init__(message)
         self.message = message
@@ -19,12 +19,12 @@ class ElasticZeroEntropyError(Exception):
 
 class ConfigurationError(ElasticZeroEntropyError):
     """Raised when there's an issue with configuration."""
-    
+
     def __init__(
-        self, 
-        message: str, 
+        self,
+        message: str,
         missing_keys: Optional[list] = None,
-        invalid_values: Optional[Dict[str, Any]] = None
+        invalid_values: Optional[Dict[str, Any]] = None,
     ) -> None:
         details = {}
         if missing_keys:
@@ -36,13 +36,14 @@ class ConfigurationError(ElasticZeroEntropyError):
 
 class ZeroEntropyAPIError(ElasticZeroEntropyError):
     """Raised when ZeroEntropy API calls fail."""
-    
+
     def __init__(
         self,
         message: str,
         status_code: Optional[int] = None,
         response_body: Optional[str] = None,
-        request_id: Optional[str] = None
+        request_id: Optional[str] = None,
+        **kwargs: Any,
     ) -> None:
         details = {}
         if status_code is not None:
@@ -51,18 +52,20 @@ class ZeroEntropyAPIError(ElasticZeroEntropyError):
             details["response_body"] = response_body
         if request_id:
             details["request_id"] = request_id
+        # Merge any additional kwargs into details
+        details.update(kwargs)
         super().__init__(message, details)
 
 
 class ElasticsearchError(ElasticZeroEntropyError):
     """Raised when Elasticsearch operations fail."""
-    
+
     def __init__(
         self,
         message: str,
         index: Optional[str] = None,
         query: Optional[Dict[str, Any]] = None,
-        elasticsearch_error: Optional[Exception] = None
+        elasticsearch_error: Optional[Exception] = None,
     ) -> None:
         details = {}
         if index:
@@ -76,13 +79,13 @@ class ElasticsearchError(ElasticZeroEntropyError):
 
 class RerankingError(ElasticZeroEntropyError):
     """Raised when reranking operations fail."""
-    
+
     def __init__(
         self,
         message: str,
         query: Optional[str] = None,
         document_count: Optional[int] = None,
-        stage: Optional[str] = None
+        stage: Optional[str] = None,
     ) -> None:
         details = {}
         if query:
@@ -96,12 +99,12 @@ class RerankingError(ElasticZeroEntropyError):
 
 class RateLimitError(ZeroEntropyAPIError):
     """Raised when API rate limits are exceeded."""
-    
+
     def __init__(
         self,
         message: str = "Rate limit exceeded",
         retry_after: Optional[int] = None,
-        **kwargs: Any
+        **kwargs: Any,
     ) -> None:
         super().__init__(message, **kwargs)
         if retry_after is not None:
@@ -110,34 +113,32 @@ class RateLimitError(ZeroEntropyAPIError):
 
 class AuthenticationError(ZeroEntropyAPIError):
     """Raised when API authentication fails."""
-    
+
     def __init__(
-        self,
-        message: str = "Authentication failed - check your API key",
-        **kwargs: Any
+        self, message: str = "Authentication failed - check your API key", **kwargs: Any
     ) -> None:
-        super().__init__(message, status_code=401, **kwargs)
+        # Ensure status_code is set to 401 for authentication errors
+        kwargs["status_code"] = 401
+        super().__init__(message, **kwargs)
 
 
 class QuotaExceededError(ZeroEntropyAPIError):
     """Raised when API quota is exceeded."""
-    
-    def __init__(
-        self,
-        message: str = "API quota exceeded",
-        **kwargs: Any
-    ) -> None:
-        super().__init__(message, status_code=429, **kwargs)
+
+    def __init__(self, message: str = "API quota exceeded", **kwargs: Any) -> None:
+        # Ensure status_code is set to 429 for quota exceeded errors
+        kwargs["status_code"] = 429
+        super().__init__(message, **kwargs)
 
 
 class TimeoutError(ElasticZeroEntropyError):
     """Raised when operations timeout."""
-    
+
     def __init__(
         self,
         message: str,
         timeout_seconds: Optional[float] = None,
-        operation: Optional[str] = None
+        operation: Optional[str] = None,
     ) -> None:
         details = {}
         if timeout_seconds is not None:
@@ -149,13 +150,13 @@ class TimeoutError(ElasticZeroEntropyError):
 
 class ValidationError(ElasticZeroEntropyError):
     """Raised when input validation fails."""
-    
+
     def __init__(
         self,
         message: str,
         field: Optional[str] = None,
         value: Optional[Any] = None,
-        expected_type: Optional[str] = None
+        expected_type: Optional[str] = None,
     ) -> None:
         details = {}
         if field:
@@ -164,4 +165,4 @@ class ValidationError(ElasticZeroEntropyError):
             details["value"] = value
         if expected_type:
             details["expected_type"] = expected_type
-        super().__init__(message, details) 
+        super().__init__(message, details)

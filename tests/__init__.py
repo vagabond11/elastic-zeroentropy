@@ -1,1 +1,1 @@
-"""Test package for elastic-zeroentropy library.""" 
+"""Test package for elastic-zeroentropy library."""
