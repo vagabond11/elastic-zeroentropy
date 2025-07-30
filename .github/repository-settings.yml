@@ -1,0 +1,183 @@
+# Repository Settings Configuration
+# This file documents the recommended repository settings
+
+repository:
+  name: elastic-zeroentropy-reranker
+  description: "Turn Elasticsearch into a smart search engine with ZeroEntropy's LLM-powered reranking"
+  homepage: "https://pypi.org/project/elastic-zeroentropy/"
+  topics:
+    - python
+    - elasticsearch
+    - search
+    - reranking
+    - machine-learning
+    - ai
+    - nlp
+    - async
+    - api
+    - cli
+    - zeroentropy
+    - search-engine
+    - information-retrieval
+    - ranking
+    - llm
+    - artificial-intelligence
+    - natural-language-processing
+    - semantic-search
+    - vector-search
+    - search-optimization
+
+  # Repository Features
+  features:
+    wiki: false
+    issues: true
+    projects: true
+    discussions: true
+    packages: false
+    pages: false
+
+  # Branch Protection Rules
+  branch_protection:
+    main:
+      required_status_checks:
+        strict: true
+        contexts:
+          - "Test (Python 3.8)"
+          - "Test (Python 3.9)"
+          - "Test (Python 3.10)"
+          - "Test (Python 3.11)"
+          - "Test (Python 3.12)"
+          - "Lint and Type Check"
+          - "Security Scan"
+          - "Build Package"
+      enforce_admins: false
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: false
+      restrictions: null
+      allow_force_pushes: false
+      allow_deletions: false
+
+  # Issue Labels
+  labels:
+    - name: "bug"
+      color: "d73a4a"
+      description: "Something isn't working"
+    - name: "documentation"
+      color: "0075ca"
+      description: "Improvements or additions to documentation"
+    - name: "enhancement"
+      color: "a2eeef"
+      description: "New feature or request"
+    - name: "good first issue"
+      color: "7057ff"
+      description: "Good for newcomers"
+    - name: "help wanted"
+      color: "008672"
+      description: "Extra attention is needed"
+    - name: "invalid"
+      color: "e4e669"
+      description: "Something doesn't look right"
+    - name: "question"
+      color: "d876e3"
+      description: "Further information is requested"
+    - name: "wontfix"
+      color: "ffffff"
+      description: "This will not be worked on"
+    - name: "dependencies"
+      color: "0366d6"
+      description: "Pull requests that update a dependency file"
+    - name: "python"
+      color: "3776ab"
+      description: "Python-related changes"
+    - name: "elasticsearch"
+      color: "f7df1e"
+      description: "Elasticsearch-related changes"
+    - name: "zeroentropy"
+      color: "00d4aa"
+      description: "ZeroEntropy API-related changes"
+    - name: "search"
+      color: "1f883d"
+      description: "Search functionality changes"
+    - name: "reranking"
+      color: "ff6b6b"
+      description: "Reranking algorithm changes"
+    - name: "performance"
+      color: "ffa500"
+      description: "Performance improvements"
+    - name: "security"
+      color: "ff0000"
+      description: "Security-related changes"
+    - name: "breaking-change"
+      color: "d73a4a"
+      description: "Breaking changes"
+    - name: "feature"
+      color: "a2eeef"
+      description: "New features"
+    - name: "fix"
+      color: "d73a4a"
+      description: "Bug fixes"
+
+  # Repository Rules
+  rules:
+    - name: "Require pull request reviews before merging"
+      enforcement: "ACTIVE"
+      bypass_actors:
+        - actor_id: 123456  # Replace with your user ID
+          actor_type: "User"
+          bypass_mode: "ALWAYS"
+      required_review_count: 1
+      dismiss_stale_reviews: true
+      require_code_owner_reviews: false
+      require_last_push_approval: false
+      required_approving_review_count: 1
+
+  # Security Settings
+  security:
+    enable_dependabot: true
+    enable_dependabot_security_updates: true
+    enable_dependency_graph: true
+    enable_secret_scanning: true
+    enable_secret_scanning_push_protection: true
+
+  # Code Owners
+  codeowners:
+    - path: "src/elastic_zeroentropy/"
+      owners: ["vagabond11"]
+    - path: "tests/"
+      owners: ["vagabond11"]
+    - path: ".github/"
+      owners: ["vagabond11"]
+    - path: "docs/"
+      owners: ["vagabond11"]
+    - path: "examples/"
+      owners: ["vagabond11"]
+    - path: "*.md"
+      owners: ["vagabond11"]
+    - path: "pyproject.toml"
+      owners: ["vagabond11"]
+    - path: "Makefile"
+      owners: ["vagabond11"]
+
+  # Repository Settings
+  settings:
+    has_wiki: false
+    has_issues: true
+    has_projects: true
+    has_discussions: true
+    has_packages: false
+    has_pages: false
+    allow_squash_merge: true
+    allow_merge_commit: true
+    allow_rebase_merge: true
+    allow_auto_merge: false
+    delete_branch_on_merge: true
+    allow_update_branch: true
+    squash_merge_commit_title: "PR_TITLE"
+    squash_merge_commit_message: "COMMIT_MESSAGES"
+    merge_commit_title: "MERGE_MESSAGE"
+    merge_commit_message: "PR_TITLE"
+    archived: false
+    allow_forking: true
+    web_commit_signoff_required: false 

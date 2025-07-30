@@ -1,0 +1,35 @@
+# Global owners
+* @vagabond11
+
+# Core library code
+/src/elastic_zeroentropy/ @vagabond11
+
+# Tests
+/tests/ @vagabond11
+
+# Documentation
+/docs/ @vagabond11
+*.md @vagabond11
+README.md @vagabond11
+CHANGELOG.md @vagabond11
+CONTRIBUTING.md @vagabond11
+SECURITY.md @vagabond11
+CODE_OF_CONDUCT.md @vagabond11
+
+# Configuration files
+/pyproject.toml @vagabond11
+/Makefile @vagabond11
+/.pre-commit-config.yaml @vagabond11
+/.github/ @vagabond11
+
+# Examples
+/examples/ @vagabond11
+
+# CI/CD
+/.github/workflows/ @vagabond11
+/.github/ISSUE_TEMPLATE/ @vagabond11
+/.github/dependabot.yml @vagabond11
+
+# Environment and development files
+/.env.example @vagabond11
+/env.example @vagabond11 

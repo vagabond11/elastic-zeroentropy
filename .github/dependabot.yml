@@ -1,0 +1,79 @@
+version: 2
+updates:
+  # Enable version updates for Python
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "vagabond11"
+    assignees:
+      - "vagabond11"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "python"
+    ignore:
+      # Ignore major version updates for these packages
+      - dependency-name: "pytest"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "black"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "mypy"
+        update-types: ["version-update:semver-major"]
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "vagabond11"
+    assignees:
+      - "vagabond11"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
+
+  # Enable version updates for pre-commit hooks
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "vagabond11"
+    assignees:
+      - "vagabond11"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "pre-commit"
+    ignore:
+      # Only update pre-commit related packages
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    allow:
+      # Only allow pre-commit related packages
+      - dependency-name: "pre-commit"
+      - dependency-name: "black"
+      - dependency-name: "isort"
+      - dependency-name: "flake8"
+      - dependency-name: "mypy"
+      - dependency-name: "bandit"
+      - dependency-name: "pyupgrade" 
