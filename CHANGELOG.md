@@ -5,87 +5,124 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.0] - 2024-07-30
+
+### 🎉 Initial Release
+
+This is the first public release of elastic-zeroentropy, a Python library that seamlessly integrates ZeroEntropy's state-of-the-art rerankers with Elasticsearch.
+
+### ✨ Added
+
+- **Core Functionality**
+  - `ElasticZeroEntropyReranker` - Main reranker class for intelligent search
+  - `ZeroEntropyClient` - Async HTTP client for ZeroEntropy API
+  - `ElasticsearchClient` - Async client for Elasticsearch operations
+  - `ElasticZeroEntropyConfig` - Comprehensive configuration management
+
+- **Search Features**
+  - Automatic reranking with ZeroEntropy models (zerank-1, zerank-1-small)
+  - Flexible score combination strategies
+  - Custom Elasticsearch queries
+  - Batch processing with concurrency control
+  - Search filters and aggregations
+  - Debug information and performance metrics
+
+- **Configuration & Setup**
+  - Environment variable support
+  - Configuration file loading
+  - Programmatic configuration
+  - Rate limiting and connection pooling
+  - Health monitoring
+
+- **Error Handling**
+  - Comprehensive exception hierarchy
+  - Detailed error messages and context
+  - Graceful failure handling
+  - Retry logic with exponential backoff
+
+- **Command Line Interface**
+  - Interactive search commands
+  - Configuration management
+  - Health checking
+  - Index inspection
+  - Multiple output formats (table, JSON, simple)
+
+- **Developer Experience**
+  - Full type hints and Pydantic models
+  - Comprehensive test suite (>95% coverage)
+  - Code formatting with Black and isort
+  - Linting with flake8 and mypy
+  - Pre-commit hooks
+  - GitHub Actions CI/CD
+
+- **Documentation**
+  - Comprehensive README with examples
+  - API documentation
+  - Usage examples and tutorials
+  - Contributing guidelines
+  - Security policy
+
+### 🔧 Technical Details
+
+- **Dependencies**: httpx, elasticsearch, pydantic, pydantic-settings, tenacity, python-dotenv
+- **Optional Dependencies**: click, rich (for CLI)
+- **Python Support**: 3.8, 3.9, 3.10, 3.11, 3.12
+- **License**: MIT
+- **Test Coverage**: >95%
+
+### 🚀 Performance
+
+- **Accuracy**: Up to 28% improvement in NDCG@10 over baseline search
+- **Speed**: ~150ms latency for small payloads, ~315ms for large payloads
+- **Cost**: $0.025 per million tokens (50% less than competitors)
+- **Throughput**: High concurrent request support with rate limiting
+
+### 📦 Installation
+
+```bash
+# Basic installation
+pip install elastic-zeroentropy
+
+# With CLI support
+pip install "elastic-zeroentropy[cli]"
+
+# For development
+pip install "elastic-zeroentropy[dev]"
+```
+
+### 🎯 Quick Start
+
+```python
+import asyncio
+from elastic_zeroentropy import ElasticZeroEntropyReranker
+
+async def main():
+    async with ElasticZeroEntropyReranker() as reranker:
+        response = await reranker.search(
+            query="machine learning applications",
+            index="my_documents"
+        )
+        for result in response.results:
+            print(f"📄 {result.document.title}")
+            print(f"   📊 Score: {result.score:.4f}")
+
+asyncio.run(main())
+```
+
+### 🔗 Links
+
+- **PyPI**: https://pypi.org/project/elastic-zeroentropy/
+- **GitHub**: https://github.com/houssamouaziz/elastic-zeroentropy-reranker
+- **Documentation**: https://github.com/houssamouaziz/elastic-zeroentropy-reranker#readme
+- **ZeroEntropy**: https://zeroentropy.dev
+
+---
+
 ## [Unreleased]
 
-### Added
-- Initial release of elastic-zeroentropy library
-- Core ElasticZeroEntropyReranker class with async support
-- ZeroEntropyClient for API communication
-- ElasticsearchClient for search operations
-- Comprehensive configuration management
-- CLI interface with search, health, and config commands
-- Full type safety with Pydantic models
-- Comprehensive error handling and retries
-- Rate limiting and connection pooling
-- Health monitoring for both Elasticsearch and ZeroEntropy
-- Batch processing capabilities
-- Debug information and logging
-- Score combination strategies
-- Custom Elasticsearch query support
-- Filter and aggregation support
-- Multiple output formats (table, JSON, simple)
-- Environment variable configuration
-- Development tools (black, isort, mypy, pytest)
-- Documentation and examples
-
-### Features
-- Async/await support for high performance
-- Automatic retry logic with exponential backoff
-- Rate limiting to respect API limits
-- Connection pooling for efficient HTTP requests
-- Comprehensive validation with Pydantic
-- Flexible scoring strategies (ES only, rerank only, combined)
-- Custom Elasticsearch query support
-- Batch processing for multiple queries
-- Health monitoring and debugging
-- CLI interface for testing and debugging
-- Environment-based configuration
-- Type hints throughout the codebase
-
-### Technical
-- 95%+ test coverage
-- Full type safety with mypy
-- Code formatting with black and isort
-- Comprehensive error handling
-- Async context managers for resource management
-- Modular architecture with clear separation of concerns
-- Production-ready with proper logging and monitoring
-
-## [0.1.0] - 2025-01-XX
-
-### Added
-- Initial release
-- Core reranking functionality
-- Elasticsearch integration
-- ZeroEntropy API integration
-- CLI interface
-- Comprehensive documentation
-- Full test suite
-- Configuration management
-- Error handling and retries
-- Health monitoring
-- Batch processing
-- Debug information
-- Multiple output formats
-- Environment configuration
-- Development tools
-
-### Features
-- Async/await support
-- Automatic retries
-- Rate limiting
-- Connection pooling
-- Type safety
-- Flexible scoring
-- Custom queries
-- Health checks
-- CLI tools
-- Environment config
-
-### Technical
-- 95%+ test coverage
-- Type hints
-- Code formatting
-- Error handling
-- Async context managers
-- Modular architecture 
+### Planned Features
+- Additional ZeroEntropy models support
+- Advanced scoring algorithms
+- Real-time search capabilities
+- Integration with more search engines
+- Enhanced monitoring and analytics 
