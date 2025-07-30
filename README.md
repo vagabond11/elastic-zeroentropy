@@ -17,7 +17,7 @@ This open-source tool adds a smart reranking layer to your existing Elastic quer
 
 ## 🖥️ Demo UI Preview
 
-![Elastic-ZeroEntropy Demo UI](https://github.com/vagabond11/elastic-zeroentropy/blob/main/docs/images/demo-ui-screenshot.png)
+![Elastic-ZeroEntropy Demo UI](https://raw.githubusercontent.com/vagabond11/elastic-zeroentropy/main/docs/images/demo-ui-screenshot.png)
 
 *Interactive A/B testing interface comparing original Elasticsearch results with ZeroEntropy LLM-reranked results*
 
