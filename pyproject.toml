@@ -75,10 +75,10 @@ test = [
 elastic-zeroentropy = "elastic_zeroentropy.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/houssamouaziz/elastic-zeroentropy"
-Documentation = "https://github.com/houssamouaziz/elastic-zeroentropy#readme"
-Repository = "https://github.com/houssamouaziz/elastic-zeroentropy"
-Issues = "https://github.com/houssamouaziz/elastic-zeroentropy/issues"
+Homepage = "https://github.com/vagabond11/elastic-zeroentropy"
+Documentation = "https://github.com/vagabond11/elastic-zeroentropy#readme"
+Repository = "https://github.com/vagabond11/elastic-zeroentropy"
+Issues = "https://github.com/vagabond11/elastic-zeroentropy/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/elastic_zeroentropy"]

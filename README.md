@@ -3,19 +3,19 @@
 [![PyPI version](https://badge.fury.io/py/elastic-zeroentropy.svg)](https://badge.fury.io/py/elastic-zeroentropy)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CI/CD Pipeline](https://github.com/houssamouaziz/elastic-zeroentropy/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/houssamouaziz/elastic-zeroentropy/actions/workflow/tests.yml)
+[![CI/CD Pipeline](https://github.com/vagabond11/elastic-zeroentropy/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/vagabond11/elastic-zeroentropy/actions/workflow/tests.yml)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 [![Type checked with mypy](https://img.shields.io/badge/mypy-checked-blue)](https://mypy-lang.org/)
-[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)](https://github.com/houssamouaziz/elastic-zeroentropy/actions/workflow/tests.yml)
+[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)](https://github.com/vagabond11/elastic-zeroentropy/actions/workflow/tests.yml)
 [![Security](https://img.shields.io/badge/security-bandit-yellow)](https://bandit.readthedocs.io/)
 [![Dependabot](https://img.shields.io/badge/dependabot-enabled-brightgreen)](https://dependabot.com/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Contributors](https://img.shields.io/github/contributors/houssamouaziz/elastic-zeroentropy)](https://github.com/houssamouaziz/elastic-zeroentropy/graphs/contributors)
-[![Stars](https://img.shields.io/github/stars/houssamouaziz/elastic-zeroentropy)](https://github.com/houssamouaziz/elastic-zeroentropy/stargazers)
-[![Forks](https://img.shields.io/github/forks/houssamouaziz/elastic-zeroentropy)](https://github.com/houssamouaziz/elastic-zeroentropy/network/members)
-[![Issues](https://img.shields.io/github/issues/houssamouaziz/elastic-zeroentropy)](https://github.com/houssamouaziz/elastic-zeroentropy/issues)
-[![Discussions](https://img.shields.io/github/discussions/houssamouaziz/elastic-zeroentropy)](https://github.com/houssamouaziz/elastic-zeroentropy/discussions)
+[![Contributors](https://img.shields.io/github/contributors/vagabond11/elastic-zeroentropy)](https://github.com/vagabond11/elastic-zeroentropy/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/vagabond11/elastic-zeroentropy)](https://github.com/vagabond11/elastic-zeroentropy/stargazers)
+[![Forks](https://img.shields.io/github/forks/vagabond11/elastic-zeroentropy)](https://github.com/vagabond11/elastic-zeroentropy/network/members)
+[![Issues](https://img.shields.io/github/issues/vagabond11/elastic-zeroentropy)](https://github.com/vagabond11/elastic-zeroentropy/issues)
+[![Discussions](https://img.shields.io/github/discussions/vagabond11/elastic-zeroentropy)](https://github.com/vagabond11/elastic-zeroentropy/discussions)
 
 **Turn Elasticsearch into a smart search engine in 5 minutes with ZeroEntropy's LLM-powered reranking.**
 
@@ -434,7 +434,7 @@ documents = [
 ### Setup Development Environment
 
 ```bash
-git clone https://github.com/houssamouaziz/elastic-zeroentropy.git
+git clone https://github.com/vagabond11/elastic-zeroentropy.git
 cd elastic-zeroentropy
 
 # Install with development dependencies
@@ -491,7 +491,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ```bash
 # Clone the repository
-git clone https://github.com/houssamouaziz/elastic-zeroentropy.git
+git clone https://github.com/vagabond11/elastic-zeroentropy.git
 cd elastic-zeroentropy
 
 # Install in development mode
@@ -534,23 +534,23 @@ make build
 
 ### 📊 Stats
 - **Downloads**: [![PyPI downloads](https://img.shields.io/pypi/dm/elastic-zeroentropy)](https://pypi.org/project/elastic-zeroentropy/)
-- **Stars**: [![GitHub stars](https://img.shields.io/github/stars/houssamouaziz/elastic-zeroentropy)](https://github.com/houssamouaziz/elastic-zeroentropy/stargazers)
-- **Forks**: [![GitHub forks](https://img.shields.io/github/forks/houssamouaziz/elastic-zeroentropy)](https://github.com/houssamouaziz/elastic-zeroentropy/network/members)
-- **Issues**: [![GitHub issues](https://img.shields.io/github/issues/houssamouaziz/elastic-zeroentropy)](https://github.com/houssamouaziz/elastic-zeroentropy/issues)
-- **Discussions**: [![GitHub discussions](https://img.shields.io/github/discussions/houssamouaziz/elastic-zeroentropy)](https://github.com/houssamouaziz/elastic-zeroentropy/discussions)
+- **Stars**: [![GitHub stars](https://img.shields.io/github/stars/vagabond11/elastic-zeroentropy)](https://github.com/vagabond11/elastic-zeroentropy/stargazers)
+- **Forks**: [![GitHub forks](https://img.shields.io/github/forks/vagabond11/elastic-zeroentropy)](https://github.com/vagabond11/elastic-zeroentropy/network/members)
+- **Issues**: [![GitHub issues](https://img.shields.io/github/issues/vagabond11/elastic-zeroentropy)](https://github.com/vagabond11/elastic-zeroentropy/issues)
+- **Discussions**: [![GitHub discussions](https://img.shields.io/github/discussions/vagabond11/elastic-zeroentropy)](https://github.com/vagabond11/elastic-zeroentropy/discussions)
 
 ### 🎯 Get Involved
 
-- **🐛 Report Bugs**: [Create an issue](https://github.com/houssamouaziz/elastic-zeroentropy/issues/new?template=bug_report.md)
-- **💡 Request Features**: [Create a feature request](https://github.com/houssamouaziz/elastic-zeroentropy/issues/new?template=feature_request.md)
-- **💬 Ask Questions**: [Start a discussion](https://github.com/houssamouaziz/elastic-zeroentropy/discussions)
-- **🔧 Submit PRs**: [Contribute code](https://github.com/houssamouaziz/elastic-zeroentropy/pulls)
-- **📖 Improve Docs**: [Help with documentation](https://github.com/houssamouaziz/elastic-zeroentropy/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
+- **🐛 Report Bugs**: [Create an issue](https://github.com/vagabond11/elastic-zeroentropy/issues/new?template=bug_report.md)
+- **💡 Request Features**: [Create a feature request](https://github.com/vagabond11/elastic-zeroentropy/issues/new?template=feature_request.md)
+- **💬 Ask Questions**: [Start a discussion](https://github.com/vagabond11/elastic-zeroentropy/discussions)
+- **🔧 Submit PRs**: [Contribute code](https://github.com/vagabond11/elastic-zeroentropy/pulls)
+- **📖 Improve Docs**: [Help with documentation](https://github.com/vagabond11/elastic-zeroentropy/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
 
 ### 🏅 Contributors
 
-<a href="https://github.com/houssamouaziz/elastic-zeroentropy/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=houssamouaziz/elastic-zeroentropy" />
+<a href="https://github.com/vagabond11/elastic-zeroentropy/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=vagabond11/elastic-zeroentropy" />
 </a>
 
 ### 📈 Project Status
@@ -575,13 +575,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - **📦 PyPI**: https://pypi.org/project/elastic-zeroentropy/
-- **🐙 GitHub**: https://github.com/houssamouaziz/elastic-zeroentropy
-- **📚 Documentation**: https://github.com/houssamouaziz/elastic-zeroentropy#readme
+- **🐙 GitHub**: https://github.com/vagabond11/elastic-zeroentropy
+- **📚 Documentation**: https://github.com/vagabond11/elastic-zeroentropy#readme
 - **🤖 ZeroEntropy**: https://zeroentropy.dev
-- **📋 Issues**: https://github.com/houssamouaziz/elastic-zeroentropy/issues
-- **💬 Discussions**: https://github.com/houssamouaziz/elastic-zeroentropy/discussions
-- **🔒 Security**: https://github.com/houssamouaziz/elastic-zeroentropy/security
-- **📄 License**: https://github.com/houssamouaziz/elastic-zeroentropy/blob/main/LICENSE
+- **📋 Issues**: https://github.com/vagabond11/elastic-zeroentropy/issues
+- **💬 Discussions**: https://github.com/vagabond11/elastic-zeroentropy/discussions
+- **🔒 Security**: https://github.com/vagabond11/elastic-zeroentropy/security
+- **📄 License**: https://github.com/vagabond11/elastic-zeroentropy/blob/main/LICENSE
 
 ---
 

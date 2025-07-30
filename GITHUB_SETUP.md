@@ -171,12 +171,12 @@ Track download statistics:
 
 ## 🔗 Useful Links
 
-- **Repository**: https://github.com/houssamouaziz/elastic-zeroentropy
-- **Issues**: https://github.com/houssamouaziz/elastic-zeroentropy/issues
-- **Discussions**: https://github.com/houssamouaziz/elastic-zeroentropy/discussions
-- **Actions**: https://github.com/houssamouaziz/elastic-zeroentropy/actions
+- **Repository**: https://github.com/vagabond11/elastic-zeroentropy
+- **Issues**: https://github.com/vagabond11/elastic-zeroentropy/issues
+- **Discussions**: https://github.com/vagabond11/elastic-zeroentropy/discussions
+- **Actions**: https://github.com/vagabond11/elastic-zeroentropy/actions
 - **PyPI**: https://pypi.org/project/elastic-zeroentropy/
-- **Documentation**: https://github.com/houssamouaziz/elastic-zeroentropy#readme
+- **Documentation**: https://github.com/vagabond11/elastic-zeroentropy#readme
 
 ## ✅ Checklist
 

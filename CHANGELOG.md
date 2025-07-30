@@ -112,8 +112,8 @@ asyncio.run(main())
 ### 🔗 Links
 
 - **PyPI**: https://pypi.org/project/elastic-zeroentropy/
-- **GitHub**: https://github.com/houssamouaziz/elastic-zeroentropy
-- **Documentation**: https://github.com/houssamouaziz/elastic-zeroentropy#readme
+- **GitHub**: https://github.com/vagabond11/elastic-zeroentropy
+- **Documentation**: https://github.com/vagabond11/elastic-zeroentropy#readme
 - **ZeroEntropy**: https://zeroentropy.dev
 
 ---
