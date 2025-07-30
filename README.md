@@ -460,6 +460,6 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Made with ❤️ by the elastic-zeroentropy team**
+**Made with ❤️ by houssam Ait O.**
 
 *Keywords: elasticsearch, search, ai-search, reranking, llm, zeroentropy, semantic-search, bm25, relevance, hybrid-search, open-source-search*
