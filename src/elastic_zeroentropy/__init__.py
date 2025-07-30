@@ -6,24 +6,24 @@ with Elasticsearch to provide intelligent search result reranking.
 """
 
 from .config import ElasticZeroEntropyConfig
+from .elasticsearch_client import ElasticsearchClient
 from .exceptions import (
-    ElasticZeroEntropyError,
-    ElasticsearchError,
-    ZeroEntropyAPIError,
     ConfigurationError,
+    ElasticsearchError,
+    ElasticZeroEntropyError,
     RerankingError,
+    ZeroEntropyAPIError,
 )
 from .models import (
     Document,
-    SearchResult,
-    RerankRequest,
-    RerankResponse,
     ElasticsearchQuery,
     ElasticsearchResponse,
+    RerankRequest,
+    RerankResponse,
+    SearchResult,
 )
 from .reranker import ElasticZeroEntropyReranker
 from .zeroentropy_client import ZeroEntropyClient
-from .elasticsearch_client import ElasticsearchClient
 
 __version__ = "0.1.0"
 __author__ = "Houssam Aït"

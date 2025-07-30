@@ -1,14 +1,15 @@
 """Tests for configuration module."""
 
 import os
+from unittest.mock import mock_open, patch
+
 import pytest
-from unittest.mock import patch, mock_open
 from pydantic import ValidationError
 
 from elastic_zeroentropy.config import (
     ElasticZeroEntropyConfig,
-    load_config,
     get_config,
+    load_config,
     set_config,
 )
 from elastic_zeroentropy.exceptions import ConfigurationError

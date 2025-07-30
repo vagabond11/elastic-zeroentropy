@@ -14,15 +14,15 @@ from typing import Any, Dict, List, Optional
 
 import click
 from rich.console import Console
-from rich.table import Table
-from rich.progress import Progress, SpinnerColumn, TextColumn
-from rich.panel import Panel
 from rich.json import JSON
+from rich.panel import Panel
+from rich.progress import Progress, SpinnerColumn, TextColumn
+from rich.table import Table
 
 from .config import ElasticZeroEntropyConfig, load_config
-from .reranker import ElasticZeroEntropyReranker
 from .exceptions import ElasticZeroEntropyError
 from .models import RerankerConfig
+from .reranker import ElasticZeroEntropyReranker
 
 console = Console()
 logger = logging.getLogger(__name__)

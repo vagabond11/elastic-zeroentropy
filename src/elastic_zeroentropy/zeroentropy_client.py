@@ -14,21 +14,23 @@ from urllib.parse import urljoin
 
 import httpx
 from tenacity import (
+    before_sleep_log,
     retry,
+    retry_if_exception_type,
     stop_after_attempt,
     wait_exponential,
-    retry_if_exception_type,
-    before_sleep_log,
 )
 
 from .config import ElasticZeroEntropyConfig
 from .exceptions import (
-    ZeroEntropyAPIError,
     AuthenticationError,
-    RateLimitError,
     QuotaExceededError,
-    TimeoutError as LibTimeoutError,
+    RateLimitError,
+)
+from .exceptions import TimeoutError as LibTimeoutError
+from .exceptions import (
     ValidationError,
+    ZeroEntropyAPIError,
 )
 from .models import RerankRequest, RerankResponse
 

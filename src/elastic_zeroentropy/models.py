@@ -5,9 +5,10 @@ This module defines all the data structures used throughout the library,
 using Pydantic for validation and type safety.
 """
 
+from datetime import UTC, datetime
 from typing import Any, Dict, List, Optional, Union
+
 from pydantic import BaseModel, Field, field_validator
-from datetime import datetime, UTC
 
 
 class Document(BaseModel):

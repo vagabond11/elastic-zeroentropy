@@ -1,22 +1,23 @@
 """Tests for the main reranker functionality."""
 
-import pytest
-from unittest.mock import AsyncMock, MagicMock, patch
 from datetime import datetime
+from unittest.mock import AsyncMock, MagicMock, patch
 
-from elastic_zeroentropy.reranker import ElasticZeroEntropyReranker
+import pytest
+
 from elastic_zeroentropy.config import ElasticZeroEntropyConfig
+from elastic_zeroentropy.exceptions import RerankingError, ValidationError
 from elastic_zeroentropy.models import (
     Document,
-    SearchResult,
-    SearchResponse,
-    RerankerConfig,
     ElasticsearchResponse,
+    HealthCheckResponse,
+    RerankerConfig,
     RerankResponse,
     RerankResult,
-    HealthCheckResponse,
+    SearchResponse,
+    SearchResult,
 )
-from elastic_zeroentropy.exceptions import ValidationError, RerankingError
+from elastic_zeroentropy.reranker import ElasticZeroEntropyReranker
 
 
 @pytest.fixture

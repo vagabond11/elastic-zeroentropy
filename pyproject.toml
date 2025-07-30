@@ -54,6 +54,8 @@ dev = [
     "flake8>=6.0.0",
     "mypy>=1.0.0",
     "pre-commit>=3.0.0",
+    "bandit>=1.7.0",
+    "safety>=2.0.0",
 ]
 docs = [
     "mkdocs>=1.4.0",
@@ -148,18 +150,21 @@ addopts = [
     "--cov-report=term-missing",
     "--cov-report=html",
     "--cov-report=xml",
+    "--asyncio-mode=auto",
 ]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
 ]
-asyncio_mode = "auto"
 
 [tool.coverage.run]
-source = ["src"]
+source = ["src/elastic_zeroentropy"]
 omit = [
     "*/tests/*",
     "*/test_*",
+    "*/__pycache__/*",
+    "*/migrations/*",
 ]
 
 [tool.coverage.report]
@@ -174,4 +179,15 @@ exclude_lines = [
     "if __name__ == .__main__.:",
     "class .*\\bProtocol\\):",
     "@(abc\\.)?abstractmethod",
+]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    "*.egg-info",
 ] 

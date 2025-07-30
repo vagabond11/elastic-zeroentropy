@@ -1,23 +1,26 @@
 """Tests for ZeroEntropy API client."""
 
-import pytest
-import httpx
-from unittest.mock import AsyncMock, patch, MagicMock
-import json
 import asyncio
+import json
 from datetime import datetime
+from unittest.mock import AsyncMock, MagicMock, patch
 
-from elastic_zeroentropy.zeroentropy_client import ZeroEntropyClient
+import httpx
+import pytest
+
 from elastic_zeroentropy.config import ElasticZeroEntropyConfig
-from elastic_zeroentropy.models import RerankRequest, RerankResponse, RerankResult
 from elastic_zeroentropy.exceptions import (
-    ZeroEntropyAPIError,
     AuthenticationError,
-    RateLimitError,
     QuotaExceededError,
-    TimeoutError as LibTimeoutError,
-    ValidationError,
+    RateLimitError,
 )
+from elastic_zeroentropy.exceptions import TimeoutError as LibTimeoutError
+from elastic_zeroentropy.exceptions import (
+    ValidationError,
+    ZeroEntropyAPIError,
+)
+from elastic_zeroentropy.models import RerankRequest, RerankResponse, RerankResult
+from elastic_zeroentropy.zeroentropy_client import ZeroEntropyClient
 
 
 @pytest.fixture

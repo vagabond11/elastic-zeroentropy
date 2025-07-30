@@ -12,22 +12,22 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 
 from .config import ElasticZeroEntropyConfig
 from .elasticsearch_client import ElasticsearchClient
-from .zeroentropy_client import ZeroEntropyClient
 from .exceptions import (
+    ConfigurationError,
     ElasticZeroEntropyError,
     RerankingError,
     ValidationError,
-    ConfigurationError,
 )
 from .models import (
     Document,
-    SearchResult,
-    SearchRequest,
-    SearchResponse,
-    RerankerConfig,
     ElasticsearchQuery,
     HealthCheckResponse,
+    RerankerConfig,
+    SearchRequest,
+    SearchResponse,
+    SearchResult,
 )
+from .zeroentropy_client import ZeroEntropyClient
 
 logger = logging.getLogger(__name__)
 
