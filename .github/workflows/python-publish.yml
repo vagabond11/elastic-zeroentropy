@@ -24,10 +24,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install build twine
+        pip install -e ".[dev]"
     
     - name: Run tests
       run: |
-        pip install -e ".[dev]"
         pytest --cov=elastic_zeroentropy --cov-report=term-missing
       env:
         ZEROENTROPY_API_KEY: test-key
