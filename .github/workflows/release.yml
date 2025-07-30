@@ -91,7 +91,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/elastic-zeroentropy-${{ github.event.inputs.version }}.tar.gz
+        asset_path: ./dist/elastic_zeroentropy-${{ github.event.inputs.version }}.tar.gz
         asset_name: elastic-zeroentropy-${{ github.event.inputs.version }}.tar.gz
         asset_content_type: application/gzip
     
@@ -109,7 +109,7 @@ jobs:
     name: Publish to PyPI
     runs-on: ubuntu-latest
     needs: [release]
-    if: github.event.inputs.publish_to_pypi == 'true'
+    if: github.event.inputs.publish_to_pypi == 'true' && secrets.PYPI_API_TOKEN != ''
     
     steps:
     - name: Checkout code

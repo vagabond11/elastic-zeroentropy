@@ -48,10 +48,10 @@ jobs:
       run: |
         pytest --cov=elastic_zeroentropy --cov-report=xml --cov-report=html --cov-report=term-missing
       env:
-        ZEROENTROPY_API_KEY: ${{ secrets.ZEROENTROPY_API_KEY }}
+        ZEROENTROPY_API_KEY: ${{ secrets.ZEROENTROPY_API_KEY || 'test-key' }}
     
     - name: Upload coverage to Codecov
-      if: matrix.coverage && secrets.CODECOV_TOKEN
+      if: matrix.coverage && secrets.CODECOV_TOKEN != ''
       uses: codecov/codecov-action@v3
       with:
         file: ./coverage.xml
@@ -157,7 +157,7 @@ jobs:
     name: Publish to PyPI
     runs-on: ubuntu-latest
     needs: [test, lint, security, build]
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: github.event_name == 'release' && github.event.action == 'published' && secrets.PYPI_API_TOKEN != ''
     
     steps:
     - name: Checkout code
