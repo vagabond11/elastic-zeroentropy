@@ -3,7 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/elastic-zeroentropy.svg)](https://badge.fury.io/py/elastic-zeroentropy)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CI/CD Pipeline](https://github.com/houssamouaziz/elastic-zeroentropy-reranker/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/houssamouaziz/elastic-zeroentropy-reranker/actions)
+[![CI/CD Pipeline](https://github.com/houssamouaziz/elastic-zeroentropy-reranker/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/houssamouaziz/elastic-zeroentropy-reranker/actions/workflow/tests.yml)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 [![Type checked with mypy](https://img.shields.io/badge/mypy-checked-blue)](https://mypy-lang.org/)
