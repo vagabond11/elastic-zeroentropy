@@ -17,7 +17,7 @@ This open-source tool adds a smart reranking layer to your existing Elastic quer
 
 ## 🖥️ Demo UI Preview
 
-![Elastic-ZeroEntropy Demo UI](docs/images/demo-ui-screenshot.png)
+![Elastic-ZeroEntropy Demo UI](https://raw.githubusercontent.com/vagabond11/elastic-zeroentropy/main/docs/images/demo-ui-screenshot.png)
 
 *Interactive A/B testing interface comparing original Elasticsearch results with ZeroEntropy LLM-reranked results*
 
@@ -101,7 +101,7 @@ asyncio.run(main())
 
 The **Elastic-ZeroEntropy Demo UI** is a powerful A/B testing interface that lets you compare original Elasticsearch results with ZeroEntropy reranked results in real-time.
 
-![Demo UI Interface](docs/images/demo-ui-screenshot.png)
+![Demo UI Interface](https://raw.githubusercontent.com/vagabond11/elastic-zeroentropy/main/docs/images/demo-ui-screenshot.png)
 
 ### 🚀 Getting Started
 
