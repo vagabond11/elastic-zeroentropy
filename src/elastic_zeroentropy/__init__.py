@@ -20,6 +20,9 @@ from .models import (
     ElasticsearchResponse,
     RerankRequest,
     RerankResponse,
+    RerankerConfig,
+    SearchRequest,
+    SearchResponse,
     SearchResult,
 )
 from .reranker import ElasticZeroEntropyReranker
@@ -36,9 +39,12 @@ __all__ = [
     "ElasticsearchClient",
     # Configuration
     "ElasticZeroEntropyConfig",
+    "RerankerConfig",
     # Models
     "Document",
     "SearchResult",
+    "SearchRequest",
+    "SearchResponse",
     "RerankRequest",
     "RerankResponse",
     "ElasticsearchQuery",
