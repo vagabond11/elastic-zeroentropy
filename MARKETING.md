@@ -53,9 +53,9 @@ I was frustrated with the complexity of setting up intelligent search. Most solu
 pip install elastic-zeroentropy
 ```
 
-**GitHub:** https://github.com/houssamouaziz/elastic-zeroentropy-reranker
+**GitHub:** https://github.com/houssamouaziz/elastic-zeroentropy
 
-**Documentation:** https://github.com/houssamouaziz/elastic-zeroentropy-reranker#readme
+**Documentation:** https://github.com/houssamouaziz/elastic-zeroentropy#readme
 
 I'd love feedback on the API design, documentation, and any features you'd like to see. Also happy to help anyone integrate this into their existing search infrastructure!
 
@@ -126,7 +126,7 @@ Would you be interested in a quick call to discuss this opportunity? I'm excited
 Best regards,
 [Your Name]
 
-P.S. You can check out the library here: https://github.com/houssamouaziz/elastic-zeroentropy-reranker
+P.S. You can check out the library here: https://github.com/houssamouaziz/elastic-zeroentropy
 ```
 
 ## Social Media Posts
@@ -160,7 +160,7 @@ Key highlights:
 
 Perfect for developers who want to upgrade their search without building complex ML infrastructure.
 
-Check it out: https://github.com/houssamouaziz/elastic-zeroentropy-reranker
+Check it out: https://github.com/houssamouaziz/elastic-zeroentropy
 
 #OpenSource #Python #Elasticsearch #Search #AI #MachineLearning
 ```

@@ -6,7 +6,7 @@ This guide helps you configure all the professional features for your elastic-ze
 
 ### 1. Basic Information
 
-**Repository Name**: `elastic-zeroentropy-reranker`  
+**Repository Name**: `elastic-zeroentropy`  
 **Description**: "Turn Elasticsearch into a smart search engine with ZeroEntropy's LLM-powered reranking"  
 **Homepage**: `https://pypi.org/project/elastic-zeroentropy/`  
 **Topics**: 
@@ -171,12 +171,12 @@ Track download statistics:
 
 ## 🔗 Useful Links
 
-- **Repository**: https://github.com/houssamouaziz/elastic-zeroentropy-reranker
-- **Issues**: https://github.com/houssamouaziz/elastic-zeroentropy-reranker/issues
-- **Discussions**: https://github.com/houssamouaziz/elastic-zeroentropy-reranker/discussions
-- **Actions**: https://github.com/houssamouaziz/elastic-zeroentropy-reranker/actions
+- **Repository**: https://github.com/houssamouaziz/elastic-zeroentropy
+- **Issues**: https://github.com/houssamouaziz/elastic-zeroentropy/issues
+- **Discussions**: https://github.com/houssamouaziz/elastic-zeroentropy/discussions
+- **Actions**: https://github.com/houssamouaziz/elastic-zeroentropy/actions
 - **PyPI**: https://pypi.org/project/elastic-zeroentropy/
-- **Documentation**: https://github.com/houssamouaziz/elastic-zeroentropy-reranker#readme
+- **Documentation**: https://github.com/houssamouaziz/elastic-zeroentropy#readme
 
 ## ✅ Checklist
 

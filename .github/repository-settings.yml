@@ -2,7 +2,7 @@
 # This file documents the recommended repository settings
 
 repository:
-  name: elastic-zeroentropy-reranker
+  name: elastic-zeroentropy
   description: "Turn Elasticsearch into a smart search engine with ZeroEntropy's LLM-powered reranking"
   homepage: "https://pypi.org/project/elastic-zeroentropy/"
   topics:

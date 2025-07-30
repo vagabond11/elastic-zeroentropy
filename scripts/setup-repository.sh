@@ -57,7 +57,7 @@ fi
 # Check if remote is set
 if ! git remote get-url origin > /dev/null 2>&1; then
     print_warning "No remote origin found. Please add your GitHub repository as origin."
-    echo "Example: git remote add origin https://github.com/yourusername/elastic-zeroentropy-reranker.git"
+    echo "Example: git remote add origin https://github.com/yourusername/elastic-zeroentropy.git"
 fi
 
 print_status "Repository setup complete!"

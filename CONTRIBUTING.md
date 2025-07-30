@@ -6,7 +6,7 @@ Thank you for your interest in contributing to elastic-zeroentropy! This documen
 
 ### Reporting Bugs
 
-1. **Check existing issues**: Search the [GitHub issues](https://github.com/houssamouaziz/elastic-zeroentropy-reranker/issues) to see if the bug has already been reported.
+1. **Check existing issues**: Search the [GitHub issues](https://github.com/houssamouaziz/elastic-zeroentropy/issues) to see if the bug has already been reported.
 2. **Create a new issue**: If it's a new bug, create an issue with:
    - Clear title describing the problem
    - Detailed description of the bug
@@ -48,8 +48,8 @@ Thank you for your interest in contributing to elastic-zeroentropy! This documen
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/houssamouaziz/elastic-zeroentropy-reranker.git
-   cd elastic-zeroentropy-reranker
+   git clone https://github.com/houssamouaziz/elastic-zeroentropy.git
+cd elastic-zeroentropy
    ```
 
 2. **Install in development mode**:

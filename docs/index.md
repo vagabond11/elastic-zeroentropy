@@ -68,10 +68,10 @@ Security considerations and best practices.
 ## 🔗 Links
 
 - **PyPI**: https://pypi.org/project/elastic-zeroentropy/
-- **GitHub**: https://github.com/houssamouaziz/elastic-zeroentropy-reranker
+- **GitHub**: https://github.com/houssamouaziz/elastic-zeroentropy
 - **ZeroEntropy**: https://zeroentropy.dev
-- **Issues**: https://github.com/houssamouaziz/elastic-zeroentropy-reranker/issues
-- **Discussions**: https://github.com/houssamouaziz/elastic-zeroentropy-reranker/discussions
+- **Issues**: https://github.com/houssamouaziz/elastic-zeroentropy/issues
+- **Discussions**: https://github.com/houssamouaziz/elastic-zeroentropy/discussions
 
 ## 🤝 Contributing
 

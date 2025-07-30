@@ -202,7 +202,7 @@ asyncio.run(custom_query_search())
 - Read the [full documentation](README.md)
 - Check out [examples](examples/)
 - Explore the [CLI interface](README.md#command-line-interface)
-- Join the [community](https://github.com/houssamouaziz/elastic-zeroentropy-reranker)
+- Join the [community](https://github.com/houssamouaziz/elastic-zeroentropy)
 
 ## Troubleshooting
 
@@ -217,5 +217,5 @@ asyncio.run(custom_query_search())
 
 - Check the [documentation](README.md)
 - Review [examples](examples/)
-- Open an [issue](https://github.com/houssamouaziz/elastic-zeroentropy-reranker/issues)
+- Open an [issue](https://github.com/houssamouaziz/elastic-zeroentropy/issues)
 - Use the CLI health check: `elastic-zeroentropy health` 
