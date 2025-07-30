@@ -5,7 +5,7 @@ This module defines all the data structures used throughout the library,
 using Pydantic for validation and type safety.
 """
 
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Union
 
 from pydantic import BaseModel, Field, field_validator
@@ -207,7 +207,7 @@ class HealthCheckResponse(BaseModel):
     )
     zeroentropy: Dict[str, Any] = Field(..., description="ZeroEntropy API status")
     timestamp: datetime = Field(
-        default_factory=lambda: datetime.now(UTC), description="Check timestamp"
+        default_factory=lambda: datetime.now(timezone.utc), description="Check timestamp"
     )
     version: str = Field(..., description="Library version")
 
